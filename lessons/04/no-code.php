@@ -1,24 +1,17 @@
 <?php
-/********
-* This is for the session information we're using.
-* It has to be at the TOP of every php page you use
-* sessions on and you can't output any html or
-* spaces before you call it otherwise you'll get errors
-********/
 session_start();
 
 /**************
-* File: Character.php (Lesson 3)
+* File: Character.php (Lesson 4)
 * 
 * Assignment:
-*		1) See if you can figure out how sessions work
-*		2) Remove the session_start() at the top of the page, what happens now?
-*		3) Remove the $_SESSION['gameover'] = true after the player has pushed the reset button, what happens now?
-*		4) Try to add your own session variable that keeps track of how many times you've won the game since you first started playing it
+*		1) Fill in the empty logic in this new array-based maze game so the player now has to navigate a much larger maze before they
+*		    can find the treasure.
+*		2) If you get everything working, try making a larger maze with more holes by adding to the array
 *         
 * Tutorial Goals:
 *		0) Intoduction to forms -- DONE
-*		1) Make the treasure be located in a random direction
+*		1) Make the treasure be located in a random direction -- DONE
 *		2) Make the player walk around a larger area before they find the treasure (arrays)
 *		3) Let the player pick up items
 *		4) Let the player use items
@@ -37,10 +30,30 @@ session_start();
 *		17) Let the player post on a message board
 *
 * Techniques Taught This Lesson:
-*		1) functions: rand(), unset()
-*		2) Sessions
-*		3) Conditional gameplay
+*		1) arrays, multi-dimensional arrays
+*		2) array keys and values
+*		3) using multiple session variables
+*		4) accessing session data using variables
 **************/
+
+/************
+* GAME MAP/MAZE
+*	  0	1	2	3	4	5	6
+* 0	W	W	W	W	W	W	W
+* 1	W	S	E	E	W	E	W
+* 2	W	W	X	E	E	E	W
+* 3	W	E	E	E	T	X	W
+* 4	W	W	W	W	W	W	W
+************/
+
+/************
+* MAP/MAZE KEY
+* S is our starting position
+* X is a hole
+* W is a wall
+* E is an open path
+* T is the treasure
+************/
 
 //pick a random direction for the treasure
 $treasure = rand(1, 4);
