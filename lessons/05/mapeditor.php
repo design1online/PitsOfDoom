@@ -30,11 +30,9 @@ if (isset($_POST['export'])) {
 		for ($j = 0; $j <= $_SESSION['width']; $j++) {
 			echo $_POST[$i . "_" . $j] . " ";
     }
-  }
-			
-		echo "
+				echo "
 ";
-	}
+  }
 }
 
 if ($_POST['reset']) {
@@ -69,17 +67,20 @@ if ($_POST['startmap']) {
   }
 } 
 
+// not trying to export a file
 if (!isset($_POST['export'])) {
 ?>
 <html>
   <head>
     <title>Pits of Doom - Map Editor</title>
     <script language="javascript">
+			// this changes the background color of the cell
       function setColor(object) {
         object.style.backgroundColor = object.options[object.selectedIndex].style.backgroundColor;
         object.style.color = object.options[object.selectedIndex].style.color;
       }
 
+			// this resets the background color of the cell
       function resetColors(object) {
         var i;
 
@@ -206,21 +207,23 @@ if (!isset($_POST['export'])) {
               }
 
               echo ">" . $mapsymbols[$r] . "</option>";
-            }
+							
+            } // end dropdown loop
 
             echo "</select></td>";
-          }
+						
+          } //end width loop
 
           echo "</tr>";
 
-        }
+        } //end height loop
 
         echo '</table>
         <p align="center">
           <input type="submit" name="export" value="Export Map File"/>
           <input type="submit" name="reset" value="Start A New Map" onClick="return confirm(\'Are you sure?\')" />
         </p>';
-      }
+      } //end display map editor
       ?>
     </form>
   </body>

@@ -98,9 +98,10 @@ function loadMap($filename, $level)
 	//fill that in below. Otherwise you can leave this blank
 	
 	//$directory = "";
-	$directory = "maps/";
+	$directory = './maps/';
 	
 	if (file_exists($directory . $filename . "_" . $level . ".txt")) {
+		
 		//open our file for reading the contents
 		$fileline = file($directory . $filename . "_" . $level . ".txt");
 		
@@ -114,11 +115,10 @@ function loadMap($filename, $level)
 			
 				//if this data is the start of our map
 				if (substr($line, $i, 1) == "W") {
-				
 					//start pulling the info for the first row
 					//keep loading in info until we reach the end of the line
 					//in the row
-					while (substr($line, $i, 1) != "\n") {
+					while ($i <= strlen($line)) {
 						if ($i % 2 != 0) {
               //we do this so we don't load
 							//in any of the spaces between characters
@@ -350,7 +350,7 @@ function startNewGame()
 	$_SESSION['level'] = 1; //the top level on the map
 							            //higher numbers are deeper down
 							
-	$_SESSION['mapname'] = "Round Hill";
+	$_SESSION['mapname'] = "RoundHill";
 							
 	//since they haven't played yet we load this map by default
 	$_SESSION['map'] = loadMap($_SESSION['mapname'], $_SESSION['level']);
