@@ -83,7 +83,7 @@ if (isset($_POST['left'])) {
   <body>
     <form action="#" method="post">
       <?php
-        if ($_GET['showmap']) {
+        if (isset($_GET['showmap'])) {
           displayMap(
             $_SESSION['x'],
             $_SESSION['y'],
@@ -131,7 +131,7 @@ if (isset($_POST['left'])) {
         </p>
       <?php
         //now we can make it so you can turn the map on or off
-        if (!$_GET['showmap']) { //map isn't being shown
+        if (!isset($_GET['showmap'])) { //map isn't being shown
           echo '<p align="center">
             <a href="?showmap=yes">Cheat: show the map</a>
            </p>';
