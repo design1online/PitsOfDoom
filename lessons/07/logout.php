@@ -17,8 +17,8 @@ include('classfiles.php'); //let's condense all our class files into one place
 include('functions.php'); //include the functions
 session_start();
 
- //they haven't logged in yet, so there's no reason to see this page
-if (!$_SESSION['member']) {
+//they haven't logged in yet, so there's no reason to see this page
+if (!isset($_SESSION['member'])) {
 	header("Location: login.php"); //redirect them to the login page
 	exit; //use this so the rest of the page won't load
 }
