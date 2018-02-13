@@ -4,7 +4,7 @@ include('functions.php');
 
 //REMEMBER!! your maps must be in the directory specified by the loadmap function
 //Trying to load map into the database
-if ($_POST['submit'])  {
+if (isset($_POST['submit'])) {
   
 	//database connection info
 	$host = "localhost"; //usually localhost or 127.0.0.1
@@ -16,7 +16,7 @@ if ($_POST['submit'])  {
 	$database = new database($host, $username, $password, $database);
 	
   //make sure they have a file name and a level
-	if (!$_POST['file'] || $_POST['level']) {
+	if (!isset($_POST['file']) || isset($_POST['level'])) {
 		$error = "You must enter a file name and specify a level";
   }
 	
