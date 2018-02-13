@@ -21,3 +21,7 @@ if (!isset($_SESSION['database'])) {
 } else {
 	$database = $_SESSION['database'];
 }
+
+// make sure we clean any form values
+$_POST = $_SESSION['database']->makeClean($_POST);
+$_GET = $_SESSION['database']->makeClean($_GET);
