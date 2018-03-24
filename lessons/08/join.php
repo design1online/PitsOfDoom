@@ -10,7 +10,6 @@ include('inc/functions.php'); //include the functions
 include('inc/dbconnect.php'); //connect to the database
 
 if (isset($_POST['submit'])) { //short and super sweet!
-	
 	$error = newMember(
 		$_POST['username'],
 		$_POST['password'],

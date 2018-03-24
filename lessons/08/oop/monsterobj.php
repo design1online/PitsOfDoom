@@ -28,10 +28,10 @@ class monster extends character
 	{
 		global $_SESSION;
 		$this->database = $_SESSION['database'];
+		$this->table = "characters";
 		
 		if ($id) {
 			$this->id = $id;
-			$this->table = "characters";
 			$this->where = "WHERE id=$this->id";
 			$this->memberid = $this->database->single("memberid", $this->table, $this->where);
 			$this->firstname = $this->database->single("firstname", $this->table, $this->where);
